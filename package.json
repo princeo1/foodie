@@ -1,0 +1,31 @@
+{
+  "name": "foodie",
+  "version": "1.0.0",
+  "description": "My food delivery app",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/princeo1/foodie.git"
+  },
+  "author": "Prince Soni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/princeo1/foodie/issues"
+  },
+  "homepage": "https://github.com/princeo1/foodie#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browsersList":[
+    "last 10 versions"
+  ]
+}
