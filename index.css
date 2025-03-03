@@ -1,0 +1,30 @@
+.navbar {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.header{
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
+}
+.nav-logo {
+    height: 80px;
+}
+
+.corporate-icon {
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
+.nav-item {
+    display: flex;
+    font-size: 18px;
+    font-weight: 800;
+    align-items: center;
+}
+.nav-item:hover{
+    color:#ea4610;
+    cursor: pointer;
+}
