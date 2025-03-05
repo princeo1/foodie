@@ -55,3 +55,16 @@
     margin: 0px 100px;
     justify-content: space-between;
 }
+.filter {
+    margin: 10px;
+}
+
+.filter-btn {
+    background-color: #ea4610;
+    color: #FFFFFF;
+    border: none;
+    font-size: medium;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+}

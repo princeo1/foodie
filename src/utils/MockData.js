@@ -1,7 +1,3 @@
-// This is a goodx.html
-import React from "react";
-import ReactDOM from 'react-dom/client';
-
 const resList = [
     {
     "info": {
@@ -249,79 +245,6 @@ const resList = [
     },
     "cta": {
     "link": "https://www.swiggy.com/city/siliguri/prasad-hotel-khalpara-siliguri-locality-rest297342",
-    "text": "RESTAURANT_MENU",
-    "type": "WEBLINK"
-    },
-    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-    },
-    {
-    "info": {
-    "id": "1047543",
-    "name": "Shree Balaji South Indian Food",
-    "locality": "Janta Nagar",
-    "areaName": "Janta Nagar",
-    "costForTwo": "₹200 for two",
-    "cuisines": [
-    "South Indian"
-    ],
-    "veg": true,
-    "parentId": "298865",
-    "avgRatingString": "--",
-    "sla": {
-    "deliveryTime": 18,
-    "lastMileTravel": 0.3,
-    "serviceability": "SERVICEABLE",
-    "slaString": "15-20 mins",
-    "lastMileTravelString": "0.3 km",
-    "iconType": "ICON_TYPE_EMPTY"
-    },
-    "availability": {
-    "nextCloseTime": "2025-03-04 21:30:00",
-    "opened": true
-    },
-    "badges": {},
-    "isOpen": true,
-    "type": "F",
-    "badgesV2": {
-    "entityBadges": {
-    "imageBased": {},
-    "textBased": {},
-    "textExtendedBadges": {}
-    }
-    },
-    "aggregatedDiscountInfoV3": {
-    "header": "20% OFF",
-    "subHeader": "UPTO ₹50"
-    },
-    "orderabilityCommunication": {
-    "title": {},
-    "subTitle": {},
-    "message": {},
-    "customIcon": {}
-    },
-    "differentiatedUi": {
-    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-    "differentiatedUiMediaDetails": {
-    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-    "lottie": {},
-    "video": {}
-    }
-    },
-    "reviewsSummary": {},
-    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-    "restaurantOfferPresentationInfo": {},
-    "externalRatings": {
-    "aggregatedRating": {
-    "rating": "--"
-    }
-    },
-    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-    },
-    "analytics": {
-    "context": "seo-data-60753905-27fe-4161-b296-df4ac6f8ad3e"
-    },
-    "cta": {
-    "link": "https://www.swiggy.com/city/siliguri/shree-balaji-south-indian-food-janta-nagar-rest1047543",
     "text": "RESTAURANT_MENU",
     "type": "WEBLINK"
     },
@@ -728,69 +651,4 @@ const resList = [
     }
 ]
 
-const Header = () => {
-    return <div className="header">
-        <div className="logo">
-            <img
-                className="nav-logo" 
-                src="https://t3.ftcdn.net/jpg/08/29/90/88/360_F_829908823_kYsRKdQcIaYEAhHRAZTIXuSKvuVPif8w.jpg"
-                alt="logo"
-            />
-        </div>
-        <div className="navbar">
-                <div className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/4440/4440484.png"
-                 className="corporate-icon"/>For Corporate
-                </div>
-                <div className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/2956/2956869.png"
-                 className="corporate-icon"/>Offers
-                </div>
-                <div className="nav-item"><img src="https://icons.veryicon.com/png/o/miscellaneous/flat-icon/help-252.png"
-                 className="corporate-icon"/>Help
-                </div>
-                <div className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png"
-                 className="corporate-icon"/>Cart
-                </div>
-                <div className="nav-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRylqFwcq_UkroUbJ0rD0_BYS1cCb2tqTimwA&s"
-                 className="corporate-icon"/>Signin
-                </div>
-        </div>
-    </div>
-}
-
-const Card = (props) => {
-    // console.log(props)
-    const {name,cuisines,avgRating,costForTwo,cloudinaryImageId} = props.resData.info
-    // const {resData} = props;
-    // console.log(resData.info.name)
-    return <div className="card">
-        <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId}
-        alt="food"
-        className="card-img"
-        />
-        <h3>{name}</h3>
-        <h4>{cuisines.join(', ')}</h4>
-        <h4>{avgRating} stars</h4>
-        <h4>{costForTwo}</h4>
-    </div>
-}
-
-const CardContainer = () => {
-    return <div className="card-container">
-        {
-            resList.map( (restuarant)=> (
-                <Card key={restuarant.info.id} resData={restuarant}/>
-            ))
-        }
-    </div>
-}
-
-const App = () => {
-    return <div className="app">
-        <Header/>
-        <CardContainer/>
-    </div>
-}
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
+export default resList;
