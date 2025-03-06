@@ -1,6 +1,8 @@
 import { LOGO_URL } from "../utils/constants"
+import { useState } from 'react'
 
 const Header = () => {
+    const [loginBtn, setloginBtn] = useState('login');
     return <div className="header">
         <div className="logo">
             <img
@@ -22,8 +24,15 @@ const Header = () => {
                 <div className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png"
                  className="corporate-icon"/>Cart
                 </div>
-                <div className="nav-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRylqFwcq_UkroUbJ0rD0_BYS1cCb2tqTimwA&s"
-                 className="corporate-icon"/>Signin
+                <div 
+                className="nav-item"
+                onClick={() => {
+                    console.log('login btn clicked')
+                    loginBtn === 'login' ? setloginBtn('logout') : setloginBtn('login')
+                 }}
+                 >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRylqFwcq_UkroUbJ0rD0_BYS1cCb2tqTimwA&s" className="corporate-icon" />
+                {loginBtn}
                 </div>
         </div>
     </div>
