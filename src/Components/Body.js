@@ -13,10 +13,8 @@ import Shimmer from "./Shimmer";
         const json = await data.json();
         setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
-    if(ListOfRestaurant.length === 0) {
-        return <Shimmer/>
-    }
-    return <div className="body">
+    
+    return ListOfRestaurant.length === 0 ? <Shimmer/> :<div className="body">
         <div className="filter">
             <button
             className="filter-btn"
