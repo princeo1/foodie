@@ -18,7 +18,7 @@ import Shimmer from "./Shimmer";
         setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
-    return ListOfRestaurant.length === 0 ? <Shimmer/> :<div className="body">
+    return filteredRestaurant.length === 0 ? <Shimmer/> :<div className="body">
         <div className="filter">
             <input type="text" onChange={(e)=>setsearchText(e.target.value)}/>
             <button
