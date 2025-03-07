@@ -5,6 +5,7 @@ import Header from './Components/Header';
 import Body from "./Components/Body";
 import About from "./Components/About";
 import Offers from "./Components/Offers";
+import Error from './Components/Error'
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
@@ -18,7 +19,8 @@ const App = () => {
 const appRouter = createBrowserRouter([
     {
         path:'/',
-        element: <App/>
+        element: <App/>,
+        errorElement: <Error/>
     },
     {
         path:'/about',
