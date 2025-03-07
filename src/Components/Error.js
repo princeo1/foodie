@@ -1,4 +1,3 @@
-import { use } from "react";
 import { useRouteError } from "react-router";
 
 const Error = () => {

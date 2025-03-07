@@ -7,12 +7,12 @@ import About from "./Components/About";
 import Offers from "./Components/Offers";
 import Error from './Components/Error'
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
 const App = () => {
     return <div className="app">
         <Header/>
-        <Body/>
+        <Outlet/>
     </div>
 }
 
@@ -20,16 +20,22 @@ const appRouter = createBrowserRouter([
     {
         path:'/',
         element: <App/>,
+        children: [
+            {
+                path: "/",
+                element: <Body/>
+            },
+            {
+                path:'/about',
+                element: <About/>
+            },
+            {
+                path:'/offers',
+                element: <Offers/>
+            }
+        ],
         errorElement: <Error/>
     },
-    {
-        path:'/about',
-        element: <About/>
-    },
-    {
-        path:'/offers',
-        element: <Offers/>
-    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
