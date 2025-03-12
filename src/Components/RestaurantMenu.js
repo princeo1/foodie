@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
     const [resInfo, setresInfo] = useState(null);
     useEffect(() => {
         getResInfo();
-    })
+    },[])
     const getResInfo = async () => {
         const data = await fetch(RES_URL_PRE + resId + RES_URL_POST);
         const json = await data.json();
