@@ -89,3 +89,7 @@
 .search-btn {
     margin: 0px 20px 0px 20px;
 }
+
+.user-card {
+    border: 2px solid black;
+}
