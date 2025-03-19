@@ -1,21 +1,27 @@
 import { LOGO_URL } from "../utils/constants"
 import { useState,useEffect } from 'react'
 import { Link } from 'react-router'
+import useOnlineStatus from '../utils/useOnlineStatus' 
 
 const Header = () => {
     const [loginBtn, setloginBtn] = useState('login');
+    const onlineStatus = useOnlineStatus();
+
     useEffect(()=> {
         console.log('useEffect called')
     },[loginBtn])
     return <div className="header">
         <div className="logo">
             <img
-                className="nav-logo" 
+                className="nav-logo"
                 src={LOGO_URL}
                 alt="logo"
             />
         </div>
         <div className="navbar">
+                <div className="nav-item">
+                    <div>Online Status : {onlineStatus ? 'Online' : 'Offline'}</div>
+                </div>
                 <div className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/4440/4440484.png"
                  className="corporate-icon"/>
                  <Link to="./"> Home </Link>
