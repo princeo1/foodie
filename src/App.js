@@ -1,5 +1,5 @@
 // This is a goodx.html
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from 'react-dom/client';
 import Header from './Components/Header';
 import Body from "./Components/Body";
@@ -10,6 +10,9 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import RestaurantMenu from "./Components/RestaurantMenu";
+// import Groceries from "./Components/Groceries";
+
+const Groceries = lazy(()=> import('./Components/Groceries'));
 
 const App = () => {
     return <div className="app">
@@ -38,6 +41,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/restaurant/:resId',
                 element: <RestaurantMenu/>
+            },
+            {
+                path: '/groceries',
+                element: <Suspense fallback={<h1>Loading........... Groceries</h1>}><Groceries/></Suspense>
             }
         ],
         errorElement: <Error/>

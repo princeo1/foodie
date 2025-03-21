@@ -22,6 +22,11 @@ const Header = () => {
                 <div className="nav-item">
                     <div>Online Status : {onlineStatus ? 'Online' : 'Offline'}</div>
                 </div>
+                <div className="nav-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png"
+                    className="corporate-icon"/>
+                    <Link to="./groceries">Groceries</Link>
+                </div>
                 <div className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/4440/4440484.png"
                  className="corporate-icon"/>
                  <Link to="./"> Home </Link>
