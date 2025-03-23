@@ -29,17 +29,19 @@ import useOnlineStatus from "../utils/useOnlineStatus";
     }
 
     return filteredRestaurant.length === 0 ? <Shimmer/> :<div className="body">
-        <div className="filter">
-            <input type="text" onChange={(e)=>setsearchText(e.target.value)}/>
+        <div className="flex my-4 justify-around flex-wrap">
+            <div>
+                <input className="mx-4 rounded-lg px-4 border border-black h-10"type="text" onChange={(e)=>setsearchText(e.target.value)}/>
+                <button
+                    className="rounded-lg px-4 cursor-pointer border h-10 hover:bg-green-200"
+                    onClick={()=> {
+                        const filteredResList = ListOfRestaurant.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                        setfilteredRestaurant(filteredResList)
+                    }}
+                >Search</button>
+            </div>
             <button
-                className="search-btn"
-                onClick={()=> {
-                    const filteredResList = ListOfRestaurant.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
-                    setfilteredRestaurant(filteredResList)
-                }}
-            >Search</button>
-            <button
-            className="filter-btn"
+            className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300"
             onClick={() => {
                 const filteredList = ListOfRestaurant.filter(
                     (res) => res.info.avgRating > 4.5
@@ -50,7 +52,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
                 Top Reated Restaurant
             </button>
         </div>
-        <div className="card-container">
+        <div className="flex flex-wrap justify-center">
             {
                 filteredRestaurant.map( (restuarant)=> (
                     <Link key={restuarant.info.id} to={"/restaurant/"+restuarant.info.id}><RestaurantCard resData={restuarant}/></Link>

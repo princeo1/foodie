@@ -10,7 +10,7 @@ const Header = () => {
     useEffect(()=> {
         console.log('useEffect called')
     },[loginBtn])
-    return <div className="flex justify-between bg-green-100 items-center">
+    return <div className="flex justify-between bg-green-100 items-center flex-wrap">
         <div className="logo">
             <img
                 className="nav-logo h-[80px] w-[80px] ml-15"
