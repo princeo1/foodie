@@ -38,7 +38,7 @@ const Header = () => {
                  <Link to="cart"> Cart </Link>
                 </div>
                 <div 
-                className="px-10"
+                className="px-10 cursor-pointer"
                 onClick={() => {
                     console.log('login btn clicked')
                     loginBtn === 'login' ? setloginBtn('logout') : setloginBtn('login')
