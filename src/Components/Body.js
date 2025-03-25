@@ -44,12 +44,13 @@ import useOnlineStatus from "../utils/useOnlineStatus";
             className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300"
             onClick={() => {
                 const filteredList = ListOfRestaurant.filter(
-                    (res) => res.info.avgRating > 4.5
+                    (res) => res.info.avgRating > 4.6
                 );
-                setListOfRestaurant(filteredList)
+                console.log(filteredList)
+                setfilteredRestaurant(filteredList)
             }}
             >
-                Top Reated Restaurant
+                Filter Restaurant Rating {'>'} 4.6
             </button>
         </div>
         <div className="flex flex-wrap justify-center">
