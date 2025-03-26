@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard , {withOnlineLabel} from "./RestaurantCard";
 import {useState,useEffect} from 'react';
 // import resList from "../utils/MockData";
 import Shimmer from "./Shimmer";
@@ -9,6 +9,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
     const [ListOfRestaurant, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setfilteredRestaurant] = useState([])
     const [searchText, setsearchText] = useState('');
+
+    const RestaurantIsOnline = withOnlineLabel(RestaurantCard); // this will return a new component and this is how we make this function a component
     useEffect(() => {
         fetchData();
     },[])
@@ -40,23 +42,38 @@ import useOnlineStatus from "../utils/useOnlineStatus";
                     }}
                 >Search</button>
             </div>
-            <button
-            className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300"
-            onClick={() => {
-                const filteredList = ListOfRestaurant.filter(
-                    (res) => res.info.avgRating > 4.6
-                );
-                console.log(filteredList)
-                setfilteredRestaurant(filteredList)
-            }}
-            >
-                Filter Restaurant Rating {'>'} 4.6
-            </button>
+            <div>
+                <button
+                className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300"
+                onClick={() => {
+                    const filteredList = ListOfRestaurant.filter(
+                        (res) => res.info.avgRating > 4.6
+                    );
+                    console.log(filteredList)
+                    setfilteredRestaurant(filteredList)
+                }}
+                >
+                    Filter Restaurant Rating {'>'} 4.6
+                </button>
+                <button
+                className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300 ml-2"
+                onClick={() => {
+                    setfilteredRestaurant(ListOfRestaurant);
+                }}
+                >
+                See all restaurants
+                </button>
+            </div>
+            
         </div>
         <div className="flex flex-wrap justify-center">
             {
                 filteredRestaurant.map( (restuarant)=> (
-                    <Link key={restuarant.info.id} to={"/restaurant/"+restuarant.info.id}><RestaurantCard resData={restuarant}/></Link>
+                    <Link key={restuarant.info.id} to={"/restaurant/"+restuarant.info.id}>
+                        {/* if restaurant is online then show higher order component instaed */
+                        restuarant.info.isOpen ? <RestaurantIsOnline resData={restuarant}/> : <RestaurantCard resData={restuarant}/>
+                        }
+                    </Link>
                 ))
             }
         </div>

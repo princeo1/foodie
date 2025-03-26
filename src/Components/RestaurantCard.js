@@ -2,7 +2,6 @@ import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
     const {name,cuisines,avgRating,costForTwo,cloudinaryImageId} = props.resData.info
 
-
     return <div className="card bg-gray-100 m-4 w-[300px] rounded-lg h-[500px]">
         <img src={CDN_URL + cloudinaryImageId}
         alt="food"
@@ -15,5 +14,20 @@ const RestaurantCard = (props) => {
         <h4>{costForTwo}</h4>
         </div>
     </div>
+}
+
+
+// logic for higher order component 
+// input RestaurantCard => RestaurantCardPromoted
+
+export const withOnlineLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute bg-red-400 text-white ml-4 p-1">Online</label>
+                <RestaurantCard {...props}/>
+            </div>
+        )
+    }
 }
 export default RestaurantCard;
