@@ -6,6 +6,7 @@ const RestaurantMenu = () => {
     const params = useParams();
     const {resId} = params;
     const resInfo = useResInfo(resId);
+    console.log(resInfo)
 
     return resInfo == null ? <Shimmer/> :(<div>
         <h1>{resInfo.name}</h1>
