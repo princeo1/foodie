@@ -9,7 +9,7 @@ const useResInfo = (resId) => {
     const fetchData = async () => {
         const data = await fetch(RES_URL_PRE + resId + RES_URL_POST);
         const json = await data.json();
-        setresInfo(json?.data?.cards[2]?.card?.card?.info)
+        setresInfo(json?.data?.cards)
     }
     return resInfo;
 }
