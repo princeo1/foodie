@@ -47,13 +47,13 @@ import useOnlineStatus from "../utils/useOnlineStatus";
                 className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300"
                 onClick={() => {
                     const filteredList = ListOfRestaurant.filter(
-                        (res) => res.info.avgRating > 4.6
+                        (res) => res.info.avgRating > 4.2
                     );
                     console.log(filteredList)
                     setfilteredRestaurant(filteredList)
                 }}
                 >
-                    Filter Restaurant Rating {'>'} 4.6
+                    Filter Restaurant Rating {'>'} 4.2
                 </button>
                 <button
                 className="border border-black px-4 rounded-lg cursor-pointer h-10 hover:border-green-300 ml-2"
