@@ -10,15 +10,20 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Groceries from "./Components/Groceries";
 
 const Groceries = lazy(()=> import('./Components/Groceries'));
 
 const App = () => {
-    return <div className="app">
+    return (
+    <Provider store={appStore}> {/* we are providing our store to the app  */}
+    <div className="app">
         <Header/>
         <Outlet/>
     </div>
+    </Provider>)
 }
 
 const appRouter = createBrowserRouter([
