@@ -14,8 +14,7 @@ const RestaurantMenu = () => {
     const params = useParams();
     const {resId} = params;
     const resInfo = useResInfo(resId);
-    // console.log(resInfo)
-    let data = resInfo == null ? [] :resInfo[2];
+    console.log(resInfo)
     let data1 = resInfo == null ? [] :resInfo[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
     // console.log(data.length == 0 ? [] : data?.card?.card?.info);
     // console.log("data1",data1)
@@ -25,12 +24,16 @@ const RestaurantMenu = () => {
     // console.log(list)
     // const { name , cuisines , costForTwoMessage } = data.length == 0 ? [] : data?.card?.card?.info;
 
-    return resInfo === null ? <Shimmer/>:<div className="flex justify-center">
+    return resInfo === null ? <Shimmer/>:
+        <div className="flex justify-center">
             <div className="w-8/12">
-            {list.map((item,index)=>{
+            <h1 className="text-4xl font-bold text-center my-4">{resInfo[2]?.card?.card?.info?.name}</h1>
+            {/* <h2 className="text-lg font-medium text-center my-4">{resInfo[2]?.card?.card?.info?.costForTwoMessage}</h2> */}
+            {list.map((item)=>{
                 const data2 = item?.card?.card?.categories || item?.card?.card?.itemCards;
                 // console.log(index,data2)
                 return (
+                    // <DropdownDishContainer heading={item?.card?.card?.title} />
                     <div className="my-4 shadow-lg">
                         <div className="w-full flex justify-between bg-gray-200 p-2 cursor-pointer"
                             onClick={handleClick}
@@ -48,10 +51,9 @@ const RestaurantMenu = () => {
                                     })
                                 }
                             </div> :
-                            <div>
+                            <div className="p-2"> 
                             {
                                 data2.map((curr)=>{
-                                    // return <p>{curr?.title}</p>
                                     return <DropdownDishContainer heading={curr?.title} dishList={curr.itemCards}/>
                                 })
                             }
@@ -63,7 +65,7 @@ const RestaurantMenu = () => {
                 )
             })}
             </div>
-    </div>;
+        </div>;
 }
 
 export default RestaurantMenu;
