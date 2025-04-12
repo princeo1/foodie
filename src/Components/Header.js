@@ -2,8 +2,14 @@ import { LOGO_URL } from "../utils/constants"
 import { useState,useEffect } from 'react'
 import { Link } from 'react-router'
 import useOnlineStatus from '../utils/useOnlineStatus'
+import { useSelector } from "react-redux"
 
 const Header = () => {
+
+    // Subscribing to cart slice in store
+    const cartItems = useSelector((store) => store.cart.items)
+    console.log(cartItems)
+
     const [loginBtn, setloginBtn] = useState('login');
     const onlineStatus = useOnlineStatus();
 
@@ -34,8 +40,8 @@ const Header = () => {
                 <div className="flex px-10">
                  <Link to="./about"> About </Link>
                 </div>
-                <div className="flex px-10">
-                 <Link to="cart"> Cart </Link>
+                <div className="flex px-10 font-bold">
+                 <Link to="cart"> Cart - ({cartItems.length} items)</Link>
                 </div>
                 <div 
                 className="px-10 cursor-pointer"
