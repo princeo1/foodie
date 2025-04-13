@@ -1,4 +1,3 @@
-// This is a goodx.html
 import React, {lazy, Suspense} from "react";
 import ReactDOM from 'react-dom/client';
 import Header from './Components/Header';
@@ -12,6 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./Components/Cart";
 // import Groceries from "./Components/Groceries";
 
 const Groceries = lazy(()=> import('./Components/Groceries'));
@@ -50,6 +50,10 @@ const appRouter = createBrowserRouter([
             {
                 path: '/groceries',
                 element: <Suspense fallback={<h1>Loading........... Groceries</h1>}><Groceries/></Suspense>
+            },
+            {
+                path: '/cart',
+                element: <Cart/>
             }
         ],
         errorElement: <Error/>

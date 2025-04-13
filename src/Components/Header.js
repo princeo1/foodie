@@ -8,7 +8,7 @@ const Header = () => {
 
     // Subscribing to cart slice in store
     const cartItems = useSelector((store) => store.cart.items)
-    console.log(cartItems)
+    // console.log(cartItems)
 
     const [loginBtn, setloginBtn] = useState('login');
     const onlineStatus = useOnlineStatus();
@@ -41,7 +41,7 @@ const Header = () => {
                  <Link to="./about"> About </Link>
                 </div>
                 <div className="flex px-10 font-bold">
-                 <Link to="cart"> Cart - ({cartItems.length} items)</Link>
+                 <Link to="./cart"> Cart - ({cartItems.length} items)</Link>
                 </div>
                 <div 
                 className="px-10 cursor-pointer"

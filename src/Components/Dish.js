@@ -4,7 +4,7 @@ import { addItem } from "../utils/cardSlice";
 const Dish = (props) => {
     const dispatch = useDispatch();
     const handleAddItem = () => {
-        dispatch(addItem("pizza"))
+        dispatch(addItem(props))
     }
     const {name,price,description,imageLink} = props
     return (
@@ -27,4 +27,4 @@ const Dish = (props) => {
     )
 }
 
-export default Dish
+export default Dish;
