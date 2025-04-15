@@ -1,0 +1,2 @@
+var e=globalThis.parcelRequire94c2;(0,e.register)("dioSP",function(i,r){Object.defineProperty(i.exports,"__esModule",{value:!0,configurable:!0}),Object.defineProperty(i.exports,"default",{get:()=>t,set:void 0,enumerable:!0,configurable:!0});var o=e("ayMG0"),t=()=>(0,o.jsx)("h1",{children:"This groceries have a lot of components , this vertical of the business is also quite big"})});
+//# sourceMappingURL=Groceries.806ce29d.js.map
