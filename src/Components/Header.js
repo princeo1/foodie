@@ -25,12 +25,12 @@ const Header = () => {
             />
         </div>
         <div className="flex text-lg">
-                <div className="nav-item">
+                {/* <div className="nav-item">
                     <div className="px-10">Online Status : {onlineStatus ? 'Online' : 'Offline'}</div>
-                </div>
-                <div className="flex px-10">
+                </div> */}
+                {/* <div className="flex px-10">
                     <Link to="./groceries">Groceries</Link>
-                </div>
+                </div> */}
                 <div className="flex px-10">
                  <Link to="./"> Home </Link>
                 </div>
