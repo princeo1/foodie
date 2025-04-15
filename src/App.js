@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Header from './Components/Header';
 import Body from "./Components/Body";
 import About from "./Components/About";
-import Offers from "./Components/Offers";
+import ContactUs from "./Components/ContactUs";
 import Error from './Components/Error'
 import RestaurantMenu from "./Components/RestaurantMenu";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -41,7 +41,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:'/offers',
-                element: <Offers/>
+                element: <ContactUs/>
             },
             {
                 path:'/restaurant/:resId',

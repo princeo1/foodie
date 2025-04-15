@@ -35,7 +35,7 @@ const Header = () => {
                  <Link to="./"> Home </Link>
                 </div>
                 <div className="flex px-10">
-                 <Link to="./offers"> Offers </Link>
+                 <Link to="./offers"> Contact Us </Link>
                 </div>
                 <div className="flex px-10">
                  <Link to="./about"> About </Link>
