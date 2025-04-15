@@ -20,3 +20,10 @@ export const DISH_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_
                  className="w-10"/>
 
 */
+
+/*
+For cors issue we are adding a prefix = https://thingproxy.freeboard.io/fetch/
+There are 2 files in which this prefix is addded :- 
+1. Body.js
+2. constants.js
+*/
