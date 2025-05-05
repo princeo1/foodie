@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react';
 import Shimmer from "./Shimmer";
 import {Link} from 'react-router';
 import useOnlineStatus from "../utils/useOnlineStatus";
+// import {apiData } from "../utils/constants";
 
  const Body = () => {
     const [ListOfRestaurant, setListOfRestaurant] = useState([]);
@@ -11,16 +12,45 @@ import useOnlineStatus from "../utils/useOnlineStatus";
     const [searchText, setsearchText] = useState('');
 
     const RestaurantIsOnline = withOnlineLabel(RestaurantCard); // this will return a new component and this is how we make this function a component
+    // useEffect(() => {
+    //     fetchData();
+    // },[])
+    // const fetchData = async () => {
+    //     // const data = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+    //     const data = await fetch('https://cors-proxy-server-6vc0.onrender.com/api/proxy?url=https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
+    //     const json = await data.json();
+    //     console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    //     setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    //     setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // }
     useEffect(() => {
-        fetchData();
-    },[])
-    const fetchData = async () => {
-        const data = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
-        const json = await data.json();
-        console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    }
+        const fetchSwiggyData = async () => {
+          const swiggyTargetURL =
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+      
+          const encodedURL = encodeURIComponent(swiggyTargetURL);
+      
+          try {
+            const response = await fetch(
+              `https://cors-proxy-server-6vc0.onrender.com/api/proxy?url=${encodedURL}`
+            );
+      
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+      
+            const json = await response.json();
+            console.log('Swiggy API data is this:', json);
+            console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+          } catch (error) {
+            console.error('Error fetching from proxy:', error);
+          }
+        };
+      
+        fetchSwiggyData();
+      }, []);
 
     const onlineStatus = useOnlineStatus();
 

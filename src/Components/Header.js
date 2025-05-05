@@ -43,7 +43,7 @@ const Header = () => {
                 <div className="flex px-10 font-bold">
                  <Link to="./cart"> Cart - ({cartItems.length} items)</Link>
                 </div>
-                <div 
+                {/* <div 
                 className="px-10 cursor-pointer"
                 onClick={() => {
                     console.log('login btn clicked')
@@ -51,7 +51,7 @@ const Header = () => {
                  }}
                  >
                 {loginBtn}
-                </div>
+                </div> */}
         </div>
     </div>
 }
